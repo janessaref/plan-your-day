@@ -7,15 +7,21 @@ Guide for day planner construction:
 */ 
 
 // Today's date from moment.js
+var saveToDo = [];
+moment().format('MMMM Do YYYY, h:mm:ss a');
+$("#currentDay").append(moment().format('dddd, MMMM Do'));  
 
-var dayDate = document.getElementById("currentDay");
-dayDate.append(moment().format('dddd, MMMM Do'));  
+// $(".saveBtn").on("click",function() {
+//     console.log("hello");
+   
+//      var save = $(this).attr("data-time");
+//     var saveData = $(save).val();
 
-var saveBtn = document.querySelectorAll(".save");
+//     saveToDo.push(saveData);
 
-// Event Listener for save button
+//     localStorage.setItem(save, saveToDo);
 
-
+// });
 
 
 
