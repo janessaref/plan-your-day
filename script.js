@@ -7,7 +7,7 @@ Guide for day planner construction:
 */ 
 
 // Today's date from moment.js
-var saveToDo = [];
+// var saveToDo = [];
 moment().format('MMMM Do YYYY, h:mm:ss a');
 $("#currentDay").append(moment().format('dddd, MMMM Do'));  
 
@@ -22,6 +22,12 @@ $("#currentDay").append(moment().format('dddd, MMMM Do'));
 //     localStorage.setItem(save, saveToDo);
 
 // });
+
+// colors of time of day
+var timeofDay = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+var hourofDay = moment().format('H');  
+
 
 
 
