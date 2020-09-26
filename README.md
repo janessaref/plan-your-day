@@ -45,6 +45,8 @@ This project includes the following features:
 
 ## GIF of Project
 
+Although not seen clearly but I performed a refresh or reload of the page after typing.
+
 ![gif](assets/dayplanner.gif)
 
 
