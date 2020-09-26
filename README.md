@@ -11,7 +11,7 @@ I did face some challenges as to not being all too familiar with jQuery just yet
 * [Features](#features)
 * [Technologies Used](#technologies-used)
 * [GIF of Project](#gif-of-project)
-* [Images of Project](#images-of-project)
+* [Image of Project](#images-of-project)
 * [Code Snippet](#code-snippet)
 * [Deployed Link](#deployed-link)
 * [Authors](#authors)
@@ -38,9 +38,10 @@ This project includes the following features:
 ## Technologies Used
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Bootstrap](https://getbootstrap.com/)
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [jQuery] (https://jquery.com/)
+* [jQuery](https://jquery.com/)
 
 ## GIF of Project
 
@@ -99,4 +100,5 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 * I'd like to acknowledge my tutor Andrew Knapp for helping me get unstuck with local storage which was my challenge for this project.
+* I'd like to also acknowledge my instructors and TAs, Roger Lee, Kerwin Hy and Manuel Nunes.
 
