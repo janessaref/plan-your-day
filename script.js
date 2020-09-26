@@ -3,57 +3,68 @@ Guide for day planner construction:
 1. add moment js static day
 2. local storage
 3. event listener to save button
-4. get colors to match the time of day
+4. grab colors to match the time of day
 */ 
 
-// Today's date from moment.js
-var saveToDo = [];
+var textBox = $("textarea");
 
+let getToDo = localStorage.getItem("saveToDo");
+if (getToDo !== null) {
+    getToDo = getToDo.split(",");
+    for(let l = 0; l < textBox.length; l++) {
+        textBox[l].value = getToDo[l];
+    }
+}
+
+
+// Today's date from moment.js displayed on jumbotron
 moment().format('MMMM Do YYYY, h:mm:ss a');
 $("#currentDay").append(moment().format('dddd, MMMM Do'));  
+
+// Array for local storage values
+let saveToDo = [];
 
 $(".saveBtn").on("click",function() {
     console.log("hello");
    
-    var save = $(this).attr("data-time");
-    var saveData = $(save).val();
-    
+    // var save = $(this).closest("textarea").attr("data-time");
+    // var saveData = $(save).val();
+    // console.log(saveData)
 
-    saveToDo.push(save);
+    let saveText = $("textarea");
+    console.log(saveText[0].value);
+    saveToDo = [];
+    for(var k = 0; k < saveText.length; k++) {
+        saveToDo.push(saveText[k].value);
+    }
+    console.log(saveToDo)
 
-    localStorage.setItem("saveToDo", JSON.stringify(saveToDo));
+    // if (textAreaSave !== null) {
+         // saveToDo.push(textAreaSave);
+        
+    // }
+
+    localStorage.setItem("saveToDo", saveToDo);
 
 });
 
 // colors of time of day
 var timeofDay = moment().format('MMMM Do YYYY, h:mm:ss a');
 
-var hourofDay = moment().format('H');  
-
-var timeArray = [];
-
-
-// var timeVal = $(".hour").attr("data-value");
-// timeArray.push(timeVal);
-// console.log(timeArray)
-
-var textBox = $("textarea");
-console.log(textBox)
+var hourofDay = +moment().format('H');  
 
 
 for(var i = 0; i < textBox.length; i++) {
-    var everyHr = (textBox[i]).getAttribute("value");
-    console.log(everyHr)
+    var everyHr = +($("textarea").eq(i)).attr("value");
 
-    
-    if (everyHr === hourofDay) {
-        textBox.addClass("present");
+    if (hourofDay == everyHr) {
+        $("textarea").eq(i).addClass("present");
     }
     else if (everyHr > hourofDay) {
-        textBox.addClass("future");
+        $("textarea").eq(i).addClass("future");
     }
     else {
-        textBox.addClass("past");
+        $("textarea").eq(i).addClass("past");
     }
 }
 
