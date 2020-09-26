@@ -9,9 +9,10 @@ Guide for day planner construction:
     - if/else statements to add the css class into the textarea
 */
 
+// textarea variable
 var textBox = $("textarea");
-var n = 0;
 
+// grab values in local storage
 let getToDo = JSON.parse(localStorage.getItem("saveToDo"));
 if (getToDo !== null) {
     for (let l = 0; l < textBox.length; l++) {
@@ -19,35 +20,40 @@ if (getToDo !== null) {
     };
 };
 
-// array for local storage values
+// empty array for local storage values
 let saveToDo = [];
 
+// save button function for all
 $(".saveBtn").on("click", function () {
 
     let saveText = $("textarea");
     
+    // allows the field/textarea to be empty
     saveToDo = [];
+
+    // pushes values into the array saveToDo
     for (var k = 0; k < saveText.length; k++) {
         saveToDo.push(saveText[k].value);
     };
 
     // setting the events into local storage
     localStorage.setItem("saveToDo", JSON.stringify(saveToDo));
-
 });
-
 
 // today's date from moment.js displayed on jumbotron
 moment().format('MMMM Do YYYY, h:mm:ss a');
 $("#currentDay").append(moment().format('dddd, MMMM Do'));
 
-// military time for the color blocks
+// military time for the color blocks and converted into a number
 var hourofDay = +moment().format('H');
 
 // loop through the time of day to change colors of textarea
 for (var i = 0; i < textBox.length; i++) {
+
+    // storing data-value attribute into variable and converting to a number
     var everyHr = +($("textarea").eq(i)).attr("data-value");
 
+    // for past hour: gray text box; present hour: green text box; future hour: pink text box
     if (hourofDay == everyHr) {
         $("textarea").eq(i).addClass("present");
     }
